@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@thirdweb-dev/engine": "^0.0.15",
+    "lucide-react": "^0.439.0",
     "next": "14.2.8",
     "react": "^18",
     "react-dom": "^18",
