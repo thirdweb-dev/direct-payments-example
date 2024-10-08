@@ -1,8 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Direct Payments with Pay and Engine
+
+This [Next.js](https://nextjs.org) example project follows the [Direct Payments guide](https://portal.thirdweb.com/connect/pay/guides/accept-direct-payments) and shows you how to build a cross-chain purchase flow that:
+
+1. Sends tokens to your merchant wallet address using thirdweb's Pre-built Pay component.
+2. Sends an NFT to the buyer's wallet address using thirdweb Engine.
 
 ## Getting Started
 
-First, run the development server:
+The main logic for this example can be found in `src/app/page.tsx` (client) and `src/app/api/route.ts` (server).
+
+In order to run this example, you'll need to copy `.env.sample` to a new `.env` and populate the following fields:
+
+```bash
+NEXT_PUBLIC_WALLET_ADDRESS=
+NEXT_PUBLIC_THIRDWEB_CLIENT_ID=
+NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=
+PAY_WEBHOOK_SECRET=
+BACKEND_WALLET_ADDRESS=
+ENGINE_API_URL=
+ENGINE_ACCESS_TOKEN=
+```
+
+Note that `NEXT_PUBLIC_WALLET_ADDRESS` should be the merchant wallet address you'd like funds to be sent to. This could be your business wallet, for example.
+
+### Getting a Client ID
+
+To create a Client ID, navigate to the [Settings page](https://thirdweb.com/dashboard/settings/api-keys) in your dashboard and click Create API Key. Copy the Client ID field and paste it into your `.env`.
+
+### Deploying an NFT Contract
+
+Head to our [Contract Explorer](https://thirdweb.com/explore) and choose the token contract (ERC20, ERC721, ERC721C, ERC1155) that suits your use case. In our example, we utilize the [NFT Drop contract](https://thirdweb.com/thirdweb.eth/DropERC721). Enter the required information and select your chain. Once your contract has been deployed, copy the contract address and paste it into your `.env`.
+
+### Creating a Pay Webhook
+
+Navigate to your [Pay Dashboard](https://thirdweb.com/dashboard/connect/pay), click the "Webhooks" tab, and click "Create Webhook". Enter the URL where you'd like to listen events. In our case, since we are testing locally, we'll need to specify `localhost:3000/api` (or the port of your choice). Copy the generated Webhook URL and paste it into your `.env`.
+
+### Deploying an Engine
+
+If you have not already deployed an Engine instance, navigate to the [Engine Dashboard](https://thirdweb.com/dashboard/engine) and click "Create Engine Instance". Select the tier that best suits your use case. Once you've deployed, copy the generated URL and paste it into your `.env`.
+
+### Creating an Engine Access Token
+
+Once you've deployed your Engine, click into your instance and navigate to the Access Tokens page. Click "Create Access Token". Copy the generated token and paste it into your `.env`.
+
+### Try it out
+
+Now, you can run your development server:
 
 ```bash
 npm run dev
@@ -14,23 +57,4 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Your Direct Payments client and server will now run at `localhost:3000`.
