@@ -37,11 +37,15 @@ Navigate to your [Pay Dashboard](https://thirdweb.com/dashboard/connect/pay), cl
 
 #### Testing your Pay Webhook
 
-For testing, we recommend using [https://webhook.site/](https://webhook.site/). Create a Pay webhook using the generated webhook URL, and then use the webhook CLI and the token (found at the end of your webhook.site URL) to forward incoming requests to your localhost. Here is an example CLI command:
+For testing, we recommend using [https://webhook.site/](https://webhook.site/). Create a Pay webhook using the generated webhook URL, and then use the webhook.site CLI and the token (found at the end of your webhook.site URL) to forward incoming requests to your localhost.
+
+<img width="625" alt="CleanShot 2024-10-08 at 10 59 19@2x" src="https://github.com/user-attachments/assets/6556fe8a-2f02-4c9f-8748-b3b7a8319b99">
 
 ```bash
 whcli forward --token=36f7ceed-01fb-419e-b810-30c72575c88f --target=http://localhost:3000/api
 ```
+
+
 
 ### Deploying an Engine
 
