@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
 
     if (
       data.buyWithCryptoStatus &&
-      data.buyWithCryptoStatus.status === "CRYPTO_SWAP_COMPLETED"
+      data.buyWithCryptoStatus.status === "COMPLETED"
     ) {
       const {
         fromAddress,
