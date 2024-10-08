@@ -33,7 +33,7 @@ Head to our [Contract Explorer](https://thirdweb.com/explore) and choose the tok
 
 ### Creating a Pay Webhook
 
-Navigate to your [Pay Dashboard](https://thirdweb.com/dashboard/connect/pay), click the "Webhooks" tab, and click "Create Webhook". Enter the URL where you'd like to listen events. In our case, since we are testing locally, we'll need to specify `localhost:3000/api` (or the port of your choice). Copy the generated Webhook URL and paste it into your `.env`.
+Navigate to your [Pay Dashboard](https://thirdweb.com/dashboard/connect/pay), click the "Webhooks" tab, and click "Create Webhook". Enter the URL where you'd like to listen events. In our case, since we are testing locally, we'll need to specify `localhost:3000/api` (or the port of your choice). Copy the generated Webhook Secret and paste it into your `.env`.
 
 ### Deploying an Engine
 
