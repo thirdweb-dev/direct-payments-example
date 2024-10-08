@@ -2,6 +2,8 @@ import { NextResponse, NextRequest } from "next/server";
 import { Engine } from "@thirdweb-dev/engine";
 import crypto from "crypto";
 
+// Follows webhook verification docs: https://portal.thirdweb.com/connect/pay/webhooks#webhook-verification-recommended
+
 const generateSignature = (
   body: string,
   timestamp: string,
@@ -28,6 +30,8 @@ const isExpired = (timestamp: string, expirationInSeconds: number): boolean => {
   const currentTime = Math.floor(Date.now() / 1000);
   return currentTime - parseInt(timestamp) > expirationInSeconds;
 };
+
+// This is the action that will be triggered by webhook
 
 export async function POST(req: NextRequest) {
   try {
@@ -66,6 +70,7 @@ export async function POST(req: NextRequest) {
 
     const { data } = body;
 
+    // Handle fiat payments
     if (
       data.buyWithFiatStatus &&
       data.buyWithFiatStatus.status === "ON_RAMP_TRANSFER_COMPLETED"
@@ -89,6 +94,7 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    // Handle crypto payments
     if (
       data.buyWithCryptoStatus &&
       data.buyWithCryptoStatus.status === "COMPLETED"
@@ -134,6 +140,7 @@ async function sendContractCallToEngine(
       accessToken: process.env.ENGINE_ACCESS_TOKEN as string,
     });
 
+    // Your custom contract call goes here
     const response = await engine.erc721.mintTo(
       chainId,
       nftContractAddress,
@@ -143,8 +150,6 @@ async function sendContractCallToEngine(
         metadata: metadata,
       }
     );
-
-    console.log("Response", response.result);
 
     if (!response) {
       throw new Error("Error in Engine contract call");

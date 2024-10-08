@@ -18,12 +18,14 @@ export default function Home() {
           theme={"dark"}
           payOptions={{
             mode: "direct_payment",
-            buyWithFiat: { testMode: true },
+            buyWithFiat: { testMode: true }, // remove this if deploying to mainnet
             paymentInfo: {
-              amount: "0.01",
-              chain: baseSepolia,
+              amount: "0.01", // purchase amount for your token
+              chain: baseSepolia, // chain of the accepted token. Use optional "tokenInfo" field for non-native tokens.
               sellerAddress: process.env.NEXT_PUBLIC_WALLET_ADDRESS as string,
             },
+            // Purchase Data is added to the webhook response
+            // Add information here that you intend to consume server-side
             purchaseData: {
               nftContractAddress: process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS,
               chainId: baseSepolia.id,
@@ -34,6 +36,7 @@ export default function Home() {
                 amount: "0.01",
               },
             },
+            // Metadata is displayed on PayEmbed client
             metadata: {
               name: "Pay Sample NFT",
               image:
