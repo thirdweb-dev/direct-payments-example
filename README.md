@@ -8,8 +8,9 @@ This [Next.js](https://nextjs.org) example project follows the [Direct Payments 
 ## Use Cases
 Before we get started, you may be wondering: Why do I need this flow? There are a couple of use cases we can highlight:
 
-1. **Instant Cross-Chain Payments:** Send an NFT on the chain of your choice. This is great for giving customers their NFT in your application without requiring them to onboard tokens first.
-2. **Limited Liquidity Token Swaps:** Allow users to purchase your custom ERC20 directly from you without listing them on a DEX. All you need is a wallet funded with your custom ERC20.
+1. ⏰ **Instant Cross-Chain Payments:** Send an NFT on the chain of your choice. This is great for giving customers their NFT in your application without requiring them to onboard tokens first.
+
+2. 🔁 **Limited Liquidity Token Swaps:** Allow users to purchase your custom ERC20 directly from you without listing them on a DEX. All you need is a wallet funded with your custom ERC20.
 
 ## Getting Started
 
