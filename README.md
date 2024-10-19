@@ -6,7 +6,8 @@ This [Next.js](https://nextjs.org) example project follows the [Direct Payments 
 2. Sends an NFT to the buyer's wallet address using thirdweb Engine.
 
 ## Use Cases
-Before we get started, you may be wondering: Why do I need this flow? There are a couple of use cases we can highlight:
+
+You can use Direct Payments to trade any token with fiat or crypto:
 
 1. ⏰ **Instant Cross-Chain Payments:** Send an NFT on the chain of your choice. This is great for giving customers their NFT in your application without requiring them to onboard tokens first.
 
@@ -51,8 +52,6 @@ For testing, we recommend using [https://webhook.site/](https://webhook.site/). 
 ```bash
 whcli forward --token=36f7ceed-01fb-419e-b810-30c72575c88f --target=http://localhost:3000/api
 ```
-
-
 
 ### Deploying an Engine
 
