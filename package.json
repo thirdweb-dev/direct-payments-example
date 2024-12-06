@@ -11,7 +11,7 @@
   "dependencies": {
     "@thirdweb-dev/engine": "^0.0.15",
     "lucide-react": "^0.439.0",
-    "next": "14.2.8",
+    "next": "14.2.10",
     "react": "^18",
     "react-dom": "^18",
     "thirdweb": "^5.74.0"
